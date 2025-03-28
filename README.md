@@ -1,12 +1,3 @@
-# What ?
- Example of how to Parse a csv file (EUC_1.csv) and then download images from websites using 10 asynchronous Tasks.
-
-## Output
-The directory <ins> bin\Debug\net9.0\data\ </ins> contains the "result.json" file and Directories where the images have
-been downloaded. 
-
-Images are in [Brand]-[Model] structure
- 
 # ParseEUCData-lab
 
 ## Overview
@@ -54,6 +45,12 @@ Refer to [Program.cs](https://raw.githubusercontent.com/PMC/ParseEUCData-lab/ref
    - Open the project in your preferred IDE (e.g., Visual Studio).
    - Build the solution.
    - Execute `Program.cs` to start the data processing workflow.
+
+## Output
+The directory <ins> bin\Debug\net9.0\data\ </ins> contains the "result.json" file and Directories where the images have
+been downloaded. 
+
+Images are in [Brand]-[Model] structure
 
 ## License
 
