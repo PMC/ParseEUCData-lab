@@ -59,3 +59,5 @@ ParseEUCData-lab is licensed under the MIT License. See the [LICENSE](LICENSE) f
 ## Glossary
 
 EUC stands for Electric Unicycles and are the best Electric mobility device there is in the hole freaking world!! Nothing comes close!!
+
+<ins>Text generated with local LLM</ins>
