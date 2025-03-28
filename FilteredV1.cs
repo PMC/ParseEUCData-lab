@@ -68,6 +68,49 @@ public static class FilteredV1
         }
     }
 
+    public static async Task HandleImageDownloads(List<Dictionary<string, string>> list)
+    {
+        var websiteDownloadTasks = new List<Task>();
+        var allreadyCheckedURLs = new Dictionary<string, bool>();
+        foreach (var dictionary in list)
+        {
+            foreach (var s in dictionary)
+            {
+                if (s.Value.Contains("http", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    try
+                    {
+                        var model = dictionary["Model"];
+                        var brand = dictionary["Brand"];
+                        if (allreadyCheckedURLs.TryAdd(s.Value, true))
+                        {
+                            // Add the task to the list
+                            websiteDownloadTasks.Add(
+                                FilteredV1.DownloadAllImagesFromWebpageAsync(s.Value, $"data/{brand}-{model}/"));
+
+                            // Check if we have reached the maximum number of concurrent tasks
+                            if (websiteDownloadTasks.Count >= 10)
+                            {
+                                // Wait for any of the tasks to complete
+                                Task completedTask = await Task.WhenAny(websiteDownloadTasks);
+
+                                // Remove the completed task from the list
+                                websiteDownloadTasks.Remove(completedTask);
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        // ignored
+                    }
+                }
+            }
+        }
+
+// make sure all tasks are done before continuing
+        await Task.WhenAll(websiteDownloadTasks);
+    }
+
     public static async Task DownloadAllImagesFromWebpageAsync(string webpageUrl, string downloadDirectory)
     {
         using (var httpClient = new HttpClient())
