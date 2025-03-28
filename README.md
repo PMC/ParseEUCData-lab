@@ -4,6 +4,12 @@
 
 ParseEUCData-lab is a C# project designed to Parse a csv file (EUC_1.csv) and then download images from websites using 10 asynchronous Tasks. The primary modules of this project are `FilteredV1.cs` and `Program.cs`. This project focuses on efficient data extraction, filtering, and processing tailored for EUC-related datasets into json format.
 
+## Output
+The directory <ins> bin\Debug\net9.0\data\ </ins> contains the "result.json" file and Directories where the images have
+been downloaded. 
+
+Images are in [Brand]-[Model] structure
+
 ## Key Features
 - **Data Source Aggregation**: Supports multiple EUC specific data sources.
 - **Filtering Mechanism**: Provides a robust method to filter relevant data based on specific criteria.
@@ -45,12 +51,6 @@ Refer to [Program.cs](https://raw.githubusercontent.com/PMC/ParseEUCData-lab/ref
    - Open the project in your preferred IDE (e.g., Visual Studio).
    - Build the solution.
    - Execute `Program.cs` to start the data processing workflow.
-
-## Output
-The directory <ins> bin\Debug\net9.0\data\ </ins> contains the "result.json" file and Directories where the images have
-been downloaded. 
-
-Images are in [Brand]-[Model] structure
 
 ## License
 
